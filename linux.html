@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linux Cheat Sheet</title>
+</head>
+
+<p>Some useful notes from Linux Foundations <a href='https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+3T2018/course/'>introduction to Linux</a> on Edx.</p>
+
+<h2>Topics</h2>
+
+<h3>The Boot Process</h3>
+
+<ol>
+  <li>Power ON</li>
+  <li>BIOS</li>
+  <li>Master Boot Record (MBR)</li>
+  <li>Boot Loader (GRUB)</li>
+  <li>Kernel (Linux OS)</li>
+  <li>Inital RAM disk (initramfs image)</li>
+  <li>/sbin/init</li>
+  <li>Command Shell</li>
+  <li>X Windows System</li>
+</ol>
+<p>systemd starts services during the boot process.
+It does so using parallelization techniques.</p>
+<p>Start, stop, restart a service:</p>
+<code>$ sudo systemctl start|stop|restart nfs.service</code>
+<p>Enable, disable service from starting up at system boot:</p>
+<code>$ sudo sytemctl enable|disable nfs.service</code>
+
+<h3>Set Up sudo</h3>
+
+<code>$ su Password:</code>
+<code># echo 'student ALL=(ALL) ALL' > /etc/sudoers.d/student</code>
+<code># chmod 440 /etc/sudoers.d/student</code>
+
+<h3>Virtual Terminals</h3>
+
+<p>Use <code>CTRL-ALT-function key</code> to switch to a virtual
+terminal in GUI mode. In text mode use <code>ATL-function key</code>.</p>
+
+<h3>Modify Prompt</h3>
+
+<code>
+$ echo $PS1</p>
+\$</p>
+$ PS1="\u@\h \$ "</p>
+coop@quad64 $ echo $PS1</p>
+\u@\h \$
+</code>
+
+<h3>Standard File Streams</h3>
+
+
+
+<h2>Command Line</h2>
+
+<table>
+<tr><td>sudo</td><td>Provide user with admin priviliegs.</td></tr>
+<tr><td>shutdown -h</td><td>Halt system</td></tr>
+<tr><td>shutdown -h 10:00 'Message'</td>Halt system at 10:00<td></td></tr>
+<tr><td>shutdown -r</td><td>Reboot system</td></tr>
+<tr><td>which diff</td><td>Locate program</td></tr>
+<tr><td>whereis diff</td><td>Locate program (Looks for packages)</td></tr>
+<tr><td>pwd</td><td>Display present working directory</td></tr>
+<tr><td>cd mydir</td><td>Change to directory</td></tr>
+<tr><td>cd ~</td><td>Change to home directory</td></tr>
+<tr><td>cd ..</td><td>Change to parent directory</td></tr>
+<tr><td>cd -</td><td>Change to previous directory</td></tr>
+<tr><td>cd /</td><td>Change to root directory</td></tr>
+<tr><td>pushd mydir</td><td>Change to directory an remember history</td></tr>
+<tr><td>popd</td><td>Go back one pushd step</td></tr>
+<tr><td>ls</td><td>List contents of present working directory</td></tr>
+<tr><td>ls -a</td><td>List all files, including hidden files and directories</td></tr>
+<tr><td>ls -li file1 file2</td><td>Display unique inode number of file</td></tr>
+<tr><td>tree</td><td>Tree view of the file system</td></tr>
+<tr><td>ln file1 file2</td><td>Hard link</td></tr>
+<tr><td>ln -s file1 file2</td><td>Soft link</td></tr>
+<tr><td>dirs</td><td>List of directories</td></tr>
+<tr><td>cat</td><td>View small file</td></tr>
+<tr><td>tac</td><td>View small file in reverse order</td></tr>
+<tr><td>less</td><td>View large file</td></tr>
+<tr><td>tail</td><td>View last 10 lines of file</td></tr>
+<tr><td>head</td><td>View first 10 lines of file</td></tr>
+<tr><td>touch myfile</td><td>Create file</td></tr>
+<tr><td>touch -t 12091600 myfile</td><td>Change timestamp of myfile</td></tr>
+<tr><td>mkdir mydir</td><td>Create directory</td></tr>
+<tr><td>rmdir mydir</td><td>Remove empty directory</td></tr>
+<tr><td>rm -rf</td><td>Remove directory and delete all files</td></tr>
+<tr><td>mv</td><td>Rename a file, or directory</td></tr>
+<tr><td>rm</td><td>Remove a file</td></tr>
+<tr><td>rm -f</td><td>Remove a file forcefully</td></tr>
+<tr><td>rm -i</td><td>Remove a file itneractively</td></tr>
+
+</table>
+</body>
+</html>
